@@ -1,26 +1,32 @@
 # Fraudulent Job Detection Using Machine Learning
 
-## Problem Statement
+## Overview
 
-Employment scams closely imitate legitimate job advertisements by appearing on job portals, social media platforms, newspapers, and other online channels. These scams typically promise attractive job opportunities but are designed to steal money or sensitive personal information such as bank details, identity documents, or contact information.
+Employment scams have become increasingly common with the rise of online recruitment platforms. Fraudsters often post fake job advertisements that closely resemble legitimate opportunities, with the intention of extracting money or sensitive personal information such as bank details, identity proofs, or contact information from job seekers.
 
-With the rapid growth of online recruitment platforms, detecting fraudulent job postings has become a critical challenge. This project addresses the problem by applying machine learning and natural language processing techniques to automatically classify job postings as **real or fraudulent**.
+This project presents a **machine learning–based approach** to identify fraudulent job postings by analyzing both **textual content** and **structured attributes** of job advertisements. The system classifies job postings as **real or fraudulent** using supervised learning techniques and natural language processing (NLP).
+
+---
+
+## Problem Definition
+
+The objective of this project is to build a reliable classification model capable of detecting fraudulent job postings from real-world recruitment data. Since fraudulent listings are relatively rare compared to genuine job postings, the problem involves handling **class imbalance** while maintaining good predictive performance.
 
 ---
 
 ## Model Description
 
-**Fraudulent-Job-Detection-Using-ML** is a Python-based machine learning system that predicts whether a job posting is genuine or fake. The model leverages both textual and structured features extracted from job advertisements.
+**Fraudulent-Job-Detection-Using-ML** is implemented in Python and uses machine learning algorithms to analyze job postings.
 
-The following algorithms are used:
+The following models are used:
 - **Multinomial Naive Bayes**
 - **Decision Tree Classifier**
 
-The complete exploratory analysis, feature engineering, and model development are documented in the Jupyter notebook:
+Textual data from job postings is preprocessed using NLP techniques and converted into numerical representations for model training. Model performance is evaluated using accuracy and confusion matrices.
+
+Detailed analysis, preprocessing steps, and model implementation can be found in the Jupyter notebook:
 
 📄 `Fake_job_predictor.ipynb`
-
-> Note: Deployment references (e.g., Heroku) are excluded to keep this repository focused on model development and analysis.
 
 <p align="center">
   <img width="460" height="300" src="Images/image1.PNG">
@@ -28,75 +34,60 @@ The complete exploratory analysis, feature engineering, and model development ar
 
 ---
 
-## Technology Stack & Libraries
+## Technology Stack
 
-- Python
-- NumPy
-- Pandas
-- Matplotlib
-- Imbalanced-learn
-- Natural Language Toolkit (NLTK)
-- WordCloud
-- Scikit-learn
-  - Multinomial Naive Bayes
-  - Decision Tree Classifier
-- Flask (for API-level experimentation)
+- Python  
+- NumPy  
+- Pandas  
+- Matplotlib  
+- Scikit-learn  
+- Natural Language Toolkit (NLTK)  
+- WordCloud  
+- Imbalanced-learn  
+- Flask  
 
 ---
 
-## Dataset Description
+## Dataset
 
-This project uses the **Employment Scam Aegean Dataset (EMSCAD)**, which contains labeled job postings categorized as real or fraudulent.
+The project uses the **Employment Scam Aegean Dataset (EMSCAD)**, which contains labeled job postings marked as real or fraudulent.
 
 Dataset source:  
 https://www.kaggle.com/amruthjithrajvr/recruitment-scam
 
-The dataset includes:
-- Job titles
-- Company information
-- Job descriptions
-- Experience requirements
-- Location details
-- Fraud labels
+The dataset includes job-related attributes such as:
+- Job title and description  
+- Company profile  
+- Location and experience requirements  
+- Fraud label  
 
 ---
 
 ## Exploratory Data Analysis
 
 ### Job Distribution by Location
-
 <p align="center">
   <img width="460" height="300" src="Images/image2.PNG">
 </p>
 
----
-
 ### Job Distribution by Experience Level
-
 <p align="center">
   <img width="460" height="300" src="Images/image3.PNG">
 </p>
 
----
-
-### WordCloud Visualization of Common Terms
-
+### WordCloud of Common Terms
 <p align="center">
   <img width="460" height="300" src="Images/image4.PNG">
 </p>
 
-WordCloud analysis highlights frequently used terms in fraudulent job postings, helping identify suspicious language patterns.
+Exploratory analysis helps identify trends and patterns that differentiate fraudulent postings from genuine ones.
 
 ---
 
 ## Model Evaluation
 
 ### Multinomial Naive Bayes
-
-Multinomial Naive Bayes is used as a baseline classifier due to its effectiveness in handling categorical text data.
-
 - **Accuracy:** 0.898  
-- **Confusion Matrix:**
 
 <p align="center">
   <img width="460" height="300" src="Images/image5.PNG">
@@ -105,11 +96,7 @@ Multinomial Naive Bayes is used as a baseline classifier due to its effectivenes
 ---
 
 ### Decision Tree Classifier
-
-The Decision Tree classifier segments the feature space into decision regions based on information gain.
-
 - **Accuracy:** 0.817  
-- **Confusion Matrix:**
 
 <p align="center">
   <img width="460" height="300" src="Images/image6.PNG">
@@ -117,32 +104,31 @@ The Decision Tree classifier segments the feature space into decision regions ba
 
 ---
 
-## Results & Observations
+## Results
 
-- Naive Bayes outperformed the Decision Tree classifier in terms of accuracy.
-- Textual features played a major role in identifying fraudulent postings.
-- Class imbalance significantly affects fraud recall, requiring careful metric selection.
+- Naive Bayes achieved better overall performance compared to the Decision Tree classifier.
+- Text-based features played a significant role in identifying fraudulent postings.
+- Class imbalance remains a key challenge in fraud detection tasks.
 
 ---
 
 ## Limitations
 
-- Dataset is highly imbalanced (few fraudulent samples).
-- Decision Trees showed lower generalization performance.
-- Some fraudulent postings closely resemble legitimate listings.
+- The dataset is highly imbalanced, with fewer fraudulent samples.
+- Some fraudulent postings closely resemble legitimate job advertisements.
+- Decision Tree models showed lower generalization performance.
 
 ---
 
-## Future Enhancements
+## Future Scope
 
-- Apply oversampling techniques such as **SMOTE**
-- Experiment with ensemble models
-- Use TF-IDF with advanced NLP embeddings
-- Improve recall for minority (fraudulent) class
-- Deploy using modern platforms (Docker / cloud-native services)
+- Apply oversampling techniques such as SMOTE
+- Explore ensemble and deep learning models
+- Improve recall for fraudulent job detection
+- Deploy the model using modern cloud platforms
 
 ---
 
 ## Disclaimer
 
-This repository represents an independently maintained academic and research-oriented implementation developed for learning and experimentation purposes.
+This project is developed for academic and learning purposes using publicly available data. The results are intended for research and educational use only.
