@@ -1,63 +1,148 @@
-## Problem
-Scammers advertise jobs the same way legitimate employers do — online (in ads, on job sites, and social media), in newspapers, and sometimes on TV and radio. They promise you a job, but what they want is your money and your personal information.
+# Fraudulent Job Detection Using Machine Learning
 
-## Model Description 
- Fraudulent-Job-Detection-Using-MLis a python based machine learning model, which uses algorithms like the Naive Bayes algorithm and Decision tree classifier algorithm, to predict whether a posted job is fake or real. The model is deployed over heroku and can be viewed [here.](https://fake-job-prediction.herokuapp.com/)
+## Problem Statement
 
-Code for all the detailed analysis and model building can be viewed [here](Fake_job_predictor.ipynb).
+Employment scams closely imitate legitimate job advertisements by appearing on job portals, social media platforms, newspapers, and other online channels. These scams typically promise attractive job opportunities but are designed to steal money or sensitive personal information such as bank details, identity documents, or contact information.
+
+With the rapid growth of online recruitment platforms, detecting fraudulent job postings has become a critical challenge. This project addresses the problem by applying machine learning and natural language processing techniques to automatically classify job postings as **real or fraudulent**.
+
+---
+
+## Model Description
+
+**Fraudulent-Job-Detection-Using-ML** is a Python-based machine learning system that predicts whether a job posting is genuine or fake. The model leverages both textual and structured features extracted from job advertisements.
+
+The following algorithms are used:
+- **Multinomial Naive Bayes**
+- **Decision Tree Classifier**
+
+The complete exploratory analysis, feature engineering, and model development are documented in the Jupyter notebook:
+
+📄 `Fake_job_predictor.ipynb`
+
+> Note: Deployment references (e.g., Heroku) are excluded to keep this repository focused on model development and analysis.
 
 <p align="center">
   <img width="460" height="300" src="Images/image1.PNG">
 </p>
 
-### Technology Stacks and Libraries
+---
 
-* Numpy
-* Pandas
-* matplotlib
-* Imbalanced-learn
-* wordcloud
-* Natural Language Toolkit
-* Multinomial Naive Bayes (scikit-learn)
-* Decision tree classifier (scikit-learn)
-* flask
+## Technology Stack & Libraries
 
-## Analysis of Dataset
-The Model uses Employment Scam Aegean Dataset (EMSCAD) , which can be viewed [here.](https://www.kaggle.com/amruthjithrajvr/recruitment-scam)
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Imbalanced-learn
+- Natural Language Toolkit (NLTK)
+- WordCloud
+- Scikit-learn
+  - Multinomial Naive Bayes
+  - Decision Tree Classifier
+- Flask (for API-level experimentation)
 
-### Visualizing dataset based on location 
+---
+
+## Dataset Description
+
+This project uses the **Employment Scam Aegean Dataset (EMSCAD)**, which contains labeled job postings categorized as real or fraudulent.
+
+Dataset source:  
+https://www.kaggle.com/amruthjithrajvr/recruitment-scam
+
+The dataset includes:
+- Job titles
+- Company information
+- Job descriptions
+- Experience requirements
+- Location details
+- Fraud labels
+
+---
+
+## Exploratory Data Analysis
+
+### Job Distribution by Location
 
 <p align="center">
   <img width="460" height="300" src="Images/image2.PNG">
 </p>
 
-### Visualizing dataset based on Experience
+---
+
+### Job Distribution by Experience Level
 
 <p align="center">
   <img width="460" height="300" src="Images/image3.PNG">
 </p>
 
-### Visualizing common words used in the dataset using Wordcloud
+---
+
+### WordCloud Visualization of Common Terms
 
 <p align="center">
   <img width="460" height="300" src="Images/image4.PNG">
 </p>
 
-## Model Evaluation 
+WordCloud analysis highlights frequently used terms in fraudulent job postings, helping identify suspicious language patterns.
 
-### Naive Bayes Approach 
-In the first approach, Multinomial Naive Bayes,which is one of the most popular supervised learning classifications was used for the analysis of the categorical text data. <br>
-Classification Accuracy: 0.8980769230769231 <br>
-Confusion Matrix:
+---
+
+## Model Evaluation
+
+### Multinomial Naive Bayes
+
+Multinomial Naive Bayes is used as a baseline classifier due to its effectiveness in handling categorical text data.
+
+- **Accuracy:** 0.898  
+- **Confusion Matrix:**
+
 <p align="center">
   <img width="460" height="300" src="Images/image5.PNG">
 </p>
 
-### Decision tree Classifier
-In the Second approach, Decision tree classifier was used which classifies inputs by segmenting the input space into regions. <br>
-Classification Accuracy: 0.8173076923076923 <br>
-Confusion Matrix:
+---
+
+### Decision Tree Classifier
+
+The Decision Tree classifier segments the feature space into decision regions based on information gain.
+
+- **Accuracy:** 0.817  
+- **Confusion Matrix:**
+
 <p align="center">
   <img width="460" height="300" src="Images/image6.PNG">
 </p>
 
+---
+
+## Results & Observations
+
+- Naive Bayes outperformed the Decision Tree classifier in terms of accuracy.
+- Textual features played a major role in identifying fraudulent postings.
+- Class imbalance significantly affects fraud recall, requiring careful metric selection.
+
+---
+
+## Limitations
+
+- Dataset is highly imbalanced (few fraudulent samples).
+- Decision Trees showed lower generalization performance.
+- Some fraudulent postings closely resemble legitimate listings.
+
+---
+
+## Future Enhancements
+
+- Apply oversampling techniques such as **SMOTE**
+- Experiment with ensemble models
+- Use TF-IDF with advanced NLP embeddings
+- Improve recall for minority (fraudulent) class
+- Deploy using modern platforms (Docker / cloud-native services)
+
+---
+
+## Disclaimer
+
+This repository represents an independently maintained academic and research-oriented implementation developed for learning and experimentation purposes.
